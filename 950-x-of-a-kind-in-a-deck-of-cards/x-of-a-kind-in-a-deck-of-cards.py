@@ -1,0 +1,14 @@
+from collections import Counter
+from math import gcd
+from typing import List
+
+class Solution:
+    def hasGroupsSizeX(self, deck: List[int]) -> bool:
+        count = Counter(deck)
+
+        g = 0
+
+        for freq in count.values():
+            g = gcd(g, freq)
+
+        return g >= 2
